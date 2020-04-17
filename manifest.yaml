@@ -1,0 +1,23 @@
+image: geoffh1977/csi-sshfs
+tags:
+  - 'latest'
+manifests:
+  - image: geoffh1977/csi-sshfs:amd64
+    platform:
+      architecture: amd64
+      os: linux
+  - image: geoffh1977/csi-sshfs:arm32v6
+    platform:
+      architecture: arm
+      os: linux
+      variant: v6
+  - image: geoffh1977/csi-sshfs:arm32v7
+    platform:
+      architecture: arm
+      os: linux
+      variant: v7
+  - image: geoffh1977/csi-sshfs:arm64v8
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
