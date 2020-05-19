@@ -1,9 +1,10 @@
-# This YAML defines all API objects to create RBAC roles for CSI node plugin
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: csi-nodeplugin-sshfs
-  namespace: csi-sshfs
+  namespace: sshfs-system
+  
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
@@ -25,6 +26,7 @@ rules:
   - apiGroups: [""]
     resources: ["events"]
     verbs: ["get", "list", "watch", "create", "update", "patch"]
+
 ---
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
@@ -33,7 +35,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: csi-nodeplugin-sshfs
-    namespace: csi-sshfs
+    namespace: sshfs-system
 roleRef:
   kind: ClusterRole
   name: csi-nodeplugin-sshfs

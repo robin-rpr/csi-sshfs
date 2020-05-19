@@ -1,10 +1,9 @@
-# This YAML file contains driver-registrar & csi driver nodeplugin API objects
-# that are necessary to run CSI nodeplugin for sshfs
+---
 kind: DaemonSet
 apiVersion: apps/v1
 metadata:
   name: csi-nodeplugin-sshfs
-  namespace: csi-sshfs
+  namespace: sshfs-system
 spec:
   selector:
     matchLabels:
@@ -18,7 +17,8 @@ spec:
       hostNetwork: true
       containers:
         - name: node-driver-registrar
-          image: quay.io/k8scsi/csi-node-driver-registrar:v1.0.2
+          # image: quay.io/k8scsi/csi-node-driver-registrar:v1.3.0
+          image: boky/csi-node-driver-registrar
           lifecycle:
             preStop:
               exec:
@@ -43,7 +43,7 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: chrfritz/csi-sshfs:latest
+          image: geoffh1977/csi-sshfs:latest
           args:
             - "--nodeid=$(NODE_ID)"
             - "--endpoint=$(CSI_ENDPOINT)"
@@ -54,7 +54,7 @@ spec:
                   fieldPath: spec.nodeName
             - name: CSI_ENDPOINT
               value: unix://plugin/csi.sock
-          imagePullPolicy: "Always"
+          imagePullPolicy: "IfNotPresent"
           volumeMounts:
             - name: plugin-dir
               mountPath: /plugin
@@ -74,3 +74,5 @@ spec:
             path: /var/lib/kubelet/plugins_registry
             type: DirectoryOrCreate
           name: registration-dir
+      tolerations:
+        - operator: "Exists"

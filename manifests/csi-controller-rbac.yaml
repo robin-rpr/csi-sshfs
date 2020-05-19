@@ -1,11 +1,10 @@
-# This YAML file contains RBAC API objects that are necessary to run external
-# CSI attacher for sshfs adapter
-
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: csi-controller-sshfs
-  namespace: csi-sshfs
+  namespace: sshfs-system
+
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
@@ -23,7 +22,7 @@ rules:
     verbs: ["get", "list", "watch"]
   - apiGroups: ["storage.k8s.io"]
     resources: ["volumeattachments"]
-    verbs: ["get", "list", "watch", "update"]
+    verbs: ["get", "list", "watch", "update", "patch"]
 
 ---
 kind: ClusterRoleBinding
@@ -33,11 +32,12 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: csi-controller-sshfs
-    namespace: csi-sshfs
+    namespace: sshfs-system
 roleRef:
   kind: ClusterRole
   name: external-controller-sshfs
   apiGroup: rbac.authorization.k8s.io
+
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
@@ -59,8 +59,9 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: csi-controller-sshfs
-    namespace: csi-sshfs
+    namespace: sshfs-system
 roleRef:
   kind: ClusterRole
   name: csi-cluster-driver-registrar-role
   apiGroup: rbac.authorization.k8s.io
+  

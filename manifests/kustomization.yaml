@@ -1,0 +1,10 @@
+---
+namespace: sshfs-system
+
+resources:
+  - namespace.yaml
+  - csi-controller-rbac.yaml
+  - csi-controller-sshfs.yaml
+  - csi-nodeplugin-rbac.yaml
+  - csi-nodeplugin-sshfs.yaml
+  - csi-sshfs-storageclass.yaml
