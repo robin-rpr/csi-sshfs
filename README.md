@@ -1,6 +1,6 @@
 <img width="75px" height="75px" align="right" alt="Inquirer Logo" src="https://raw.githubusercontent.com/robin-rpr/csi-sshfs/master/csi-sshfs.svg" title="csi-sshfs"/>
 
-# Container Storage Interface Driver for SSHFS
+# Kubernetes CSI Driver for SSHFS
 Mount directories in Kubernetes using a SSH Connection
 
 ## Installation
