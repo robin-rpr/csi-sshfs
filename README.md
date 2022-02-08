@@ -7,12 +7,12 @@ Mount directories in Kubernetes using a SSH Connection
 
 ## Installation
 
-Deploy the whole Directory `manifests/kubernetes`.
+Deploy the whole Directory `manifests`.
 This installs the CSI Controller and Node Plugin and a appropriate Storage Class for the Driver.
 
 ```bash
 git clone git@github.com:robin-rpr/csi-sshfs.git && \
-  kubectl apply -f csi-sshfs/manifests/kubernetes
+  kubectl apply -f csi-sshfs/manifests
 ```
 
 ## Usage
