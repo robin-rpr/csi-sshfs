@@ -54,7 +54,7 @@ spec:
       name: data-sshfs
 ```
 
-Then mount the volume into a pod:
+Then mount the Volume into a Pod:
 ```yaml
 apiVersion: v1
 kind: Pod
