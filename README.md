@@ -1,4 +1,4 @@
-<img width="75px" height="75px" align="right" alt="Inquirer Logo" src="https://raw.githubusercontent.com/robin-rpr/csi-sshfs/master/csi-sshfs.svg" title="csi-sshfs"/>
+<img height="120px" align="right" alt="Inquirer Logo" src="https://raw.githubusercontent.com/robin-rpr/csi-sshfs/master/csi-sshfs.svg" title="csi-sshfs"/>
 
 # Kubernetes CSI Driver for SSHFS
 Mount directories in Kubernetes using a SSH Connection
