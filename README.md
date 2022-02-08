@@ -1,16 +1,20 @@
+<img width="75px" height="75px" align="right" alt="Inquirer Logo" src="https://raw.githubusercontent.com/robin-rpr/csi-sshfs/master/csi-sshfs.svg" title="csi-sshfs"/>
+
 # Container Storage Interface Driver for SSHFS
+Mount directories in Kubernetes using a SSH Connection
 
-This repository contains the CSI driver for SSHFS. It allows to mount directories using a ssh connection.
+## Installation
 
-## Usage
+Deploy the whole Directory `manifests/kubernetes`.
+This installs the CSI Controller and Node Plugin and a appropriate Storage Class for the Driver.
 
-Deploy the whole directory `deploy/kubernetes`.
-This installs the csi controller and node plugin and a appropriate storage class for the csi driver.
 ```bash
-kubectl apply -f deploy/kubernetes
+git clone git@github.com:robin-rpr/csi-sshfs.git && \
+  kubectl apply -f csi-sshfs/manifests/kubernetes
 ```
 
-To use the csi driver create a persistent volume and persistent volume claim like the example one:
+## Usage
+To use the CSI Driver create a `PersistentVolume` and `PersistentVolumeClaim` like the Example one:
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
