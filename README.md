@@ -1,7 +1,9 @@
 <img height="120px" align="right" alt="Inquirer Logo" src="https://raw.githubusercontent.com/robin-rpr/csi-sshfs/master/csi-sshfs.svg" title="csi-sshfs"/>
 
 # Kubernetes CSI Driver for SSHFS
+
 Mount directories in Kubernetes using a SSH Connection
+
 
 ## Installation
 
@@ -54,6 +56,18 @@ spec:
       name: data-sshfs
 ```
 
+Next add your private SSH Keys as Secret:
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: example
+  namespace: default
+type: kubernetes.io/ssh-auth
+data:
+  ssh-privatekey: # add your SSH-Private Key base64 encoded
+```
+
 Then mount the Volume into a Pod:
 ```yaml
 apiVersion: v1
@@ -76,3 +90,7 @@ spec:
     persistentVolumeClaim:
       claimName: data-sshfs
 ```
+
+### You are all set 🎉 
+[Not working?](https://github.com/robin-rpr/csi-sshfs/issues)
+
