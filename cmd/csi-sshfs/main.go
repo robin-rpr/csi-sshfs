@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/chr-fritz/csi-sshfs/pkg/sshfs"
+	"github.com/robin-rpr/csi-sshfs/pkg/sshfs"
 	"os"
 
 	"github.com/spf13/cobra"

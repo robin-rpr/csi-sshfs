@@ -54,3 +54,12 @@ spec:
   - name: data-sshfs
     persistentVolumeClaim:
       claimName: data-sshfs
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: testvol
+  namespace: default
+type: kubernetes.io/ssh-auth
+data:
+  ssh-privatekey: # add your SSH-Private Key base64 encoded
