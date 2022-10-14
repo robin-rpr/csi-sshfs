@@ -1,3 +1,4 @@
+**Status:** Experimental (only for development, expect crashes)
 <img height="120px" align="right" alt="CSI SSHFS" src="https://raw.githubusercontent.com/robin-rpr/csi-sshfs/master/csi-sshfs.svg" title="csi-sshfs"/>
 
 # Kubernetes CSI Driver for SSHFS
